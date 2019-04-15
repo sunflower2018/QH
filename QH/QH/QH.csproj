@@ -92,6 +92,7 @@
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\库存周报_上海.cs" />
     <Compile Include="Model\仓单日报_上海.cs" />
     <Compile Include="Model\仓单日报.cs" />
     <Compile Include="ViewModel\ImportDataViewModel.cs" />
