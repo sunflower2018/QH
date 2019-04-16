@@ -40,10 +40,14 @@ namespace QH.Model
         /// 本周期货
         /// </summary>
         public string WRTWGHTS { get; set; }
+        public string SPOTCHANGE { get; set; }
         /// <summary>
         /// 变动数量
         /// </summary>
         public string WRTCHANGE { get; set; }
+        public string PREWHSTOCKS { get; set; }
+        public string WHSTOCKS { get; set; }
+        public string WHSTOCKCHANGE { get; set; }
         public string ROWORDER { get; set; }
         public string ROWSTATUS { get; set; }
 
