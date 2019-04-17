@@ -88,6 +88,8 @@
     <Compile Include="ImportDataWindow.xaml.cs">
       <DependentUpon>ImportDataWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IParse.cs" />
+    <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
@@ -150,6 +152,7 @@
   <ItemGroup>
     <Content Include="win.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

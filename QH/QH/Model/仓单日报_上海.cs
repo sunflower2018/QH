@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QH.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QH.Model
 {
-    public class 仓单日报_上海
+    public class 仓单日报_详情_上海
     {
         /// <summary>
         /// 商品名称
@@ -35,10 +36,31 @@ namespace QH.Model
         public string ROWORDER { get; set; }
         public string ROWSTATUS { get; set; }
 
+        public BaseModel PaserTo()
+        {
+            仓单日报 model = new 仓单日报();
+            return model;
+        }
     }
 
-    public class Result
+    public class 仓单日报_上海 : IParse
     {
-        public List<仓单日报_上海> o_cursor { get; set; }
+        public string o_tradingday { get; set; }
+        public string o_issueno { get; set; }
+        public string o_totalissueno { get; set; }
+        public string o_code { get; set; }
+        public string o_msg { get; set; }
+        public string report_date { get; set; }
+        public DateTime update_date { get; set; }
+        public string print_date { get; set; }
+        public List<仓单日报_详情_上海> o_cursor { get; set; }
+
+        public List<仓单日报> PaserTo()
+        {
+            List<仓单日报> list = new List<仓单日报>();
+
+            //foreach()
+            return list;
+        }
     }
 }
