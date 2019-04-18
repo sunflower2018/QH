@@ -55,12 +55,31 @@ namespace QH.Model
         public string print_date { get; set; }
         public List<仓单日报_详情_上海> o_cursor { get; set; }
 
-        public List<仓单日报> PaserTo()
+        public List<BaseModel> PaserTo()
         {
-            List<仓单日报> list = new List<仓单日报>();
+            List<BaseModel> list = new List<BaseModel>();
 
-            //foreach()
+            foreach (var item in o_cursor)
+            {
+                仓单日报 model = new 仓单日报();
+                model.仓库 = item.WHABBRNAME;
+                model.变动数量 = Convert.ToInt32(item.WRTCHANGE);
+                model.商品名称 = item.VARNAME;
+                model.地区 = item.REGNAME;
+                model.日期 = Convert.ToDateTime(o_tradingday,);
+                model.注册仓单 = Convert.ToInt32(item.WRTWGHTS);               
+                list.Add(model);
+            }
+
             return list;
+            
+        }
+        private DateTime GetDate(string strDate)
+        {
+            IFormatProvider iff=new da
+            string[] arr = strDate.Split(' ');
+            
+            return DateTime.MinValue;
         }
     }
 }

@@ -97,6 +97,7 @@
     <Compile Include="Model\库存周报_上海.cs" />
     <Compile Include="Model\仓单日报_上海.cs" />
     <Compile Include="Model\仓单日报.cs" />
+    <Compile Include="Util\DateFormater.cs" />
     <Compile Include="ViewModel\ImportDataViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

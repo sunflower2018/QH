@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows;
@@ -35,11 +36,12 @@ namespace QH
             //string r1= win.Util.Util_Http.HttpGet("http://www.100ppi.com/sf2/day-2018-04-17.html", string.Empty);
 
             string r1 = win.Util.Util_Http.HttpGet("http://www.shfe.com.cn/data/dailydata/20190411dailystock.dat", string.Empty); //上海期货交易所 仓单日报
-          
+
             //string r1 = win.Util.Util_Http.HttpGet("http://www.shfe.com.cn/data/dailydata/20190412weeklystock.dat", string.Empty);//上海期货交易所 库存周报
 
-            //Result r= JsonConvert.DeserializeObject<Result>(r1);
+            仓单日报_上海 r = JsonConvert.DeserializeObject<仓单日报_上海>(r1);
 
+           
         }
 
         /*
