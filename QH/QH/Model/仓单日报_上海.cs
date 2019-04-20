@@ -36,11 +36,6 @@ namespace QH.Model
         public string ROWORDER { get; set; }
         public string ROWSTATUS { get; set; }
 
-        public BaseModel PaserTo()
-        {
-            仓单日报 model = new 仓单日报();
-            return model;
-        }
     }
 
     public class 仓单日报_上海 : IParse
@@ -66,7 +61,7 @@ namespace QH.Model
                 model.变动数量 = Convert.ToInt32(item.WRTCHANGE);
                 model.商品名称 = item.VARNAME;
                 model.地区 = item.REGNAME;
-                model.日期 = Convert.ToDateTime(o_tradingday,);
+                model.日期 = Convert.ToDateTime(this.GetTime(o_tradingday));
                 model.注册仓单 = Convert.ToInt32(item.WRTWGHTS);               
                 list.Add(model);
             }
@@ -74,12 +69,10 @@ namespace QH.Model
             return list;
             
         }
-        private DateTime GetDate(string strDate)
+        private DateTime GetTime(string formatTime)
         {
-            IFormatProvider iff=new da
-            string[] arr = strDate.Split(' ');
-            
-            return DateTime.MinValue;
+            string newstr = formatTime.Insert(4, "-").Insert(7, "-");
+            return Convert.ToDateTime(newstr);
         }
     }
 }
