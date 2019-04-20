@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QH.Model
 {
-    class 仓单日报:BaseModel
+    public class 仓单日报:BaseModel
     {
         public DateTime 日期 { get; set; }
         public string 商品名称 { get; set; }
