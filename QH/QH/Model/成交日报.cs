@@ -8,6 +8,7 @@ namespace QH.Model
 {
     public class 成交日报:BaseModel
     {
+
         public string 商品名称 { get; set; }
         public string 交割月份 { get; set; }
         public DateTime 日期 { get; set; }
