@@ -10,6 +10,6 @@ namespace QH.Model
     public class BaseModel
     {
         [Key]
-        public int 标识;
+        public int 标识 { get; set; }
     }
 }

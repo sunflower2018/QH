@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,8 +8,7 @@ using System.Threading.Tasks;
 namespace QH.Model
 {
     public class 成交日报:BaseModel
-    {
-
+    {       
         public string 商品名称 { get; set; }
         public string 交割月份 { get; set; }
         public DateTime 日期 { get; set; }
