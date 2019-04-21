@@ -2,6 +2,7 @@ namespace QH
 {
     using Model;
     using System;
+    using System.Data.Common;
     using System.Data.Entity;
     using System.Linq;
 
@@ -16,6 +17,21 @@ namespace QH
         public QHDBModel()
             : base("name=QHDBModel")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<QHDBModel, Migrations.Configuration>());
+
+        }
+
+        public QHDBModel(DbConnection existingConnection, bool contextOwnsConnection): base(existingConnection, contextOwnsConnection)
+        {
+            Configuration.ProxyCreationEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.AutoDetectChangesEnabled = true;
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<User>();
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
