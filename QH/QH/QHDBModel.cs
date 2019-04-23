@@ -6,7 +6,7 @@ namespace QH
     using System.Data.Entity;
     using System.Linq;
 
-    public class QHDBModel : DbContext
+    public class qhDbContext : DbContext
     {
         // Your context has been configured to use a 'QHDBModel' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -14,14 +14,14 @@ namespace QH
         // 
         // If you wish to target a different database and/or database provider, modify the 'QHDBModel' 
         // connection string in the application configuration file.
-        public QHDBModel()
+        public qhDbContext()
             : base("name=QHDBModel")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<QHDBModel, Migrations.Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<qhDbContext, Migrations.Configuration>());
 
         }
 
-        public QHDBModel(DbConnection existingConnection, bool contextOwnsConnection): base(existingConnection, contextOwnsConnection)
+        public qhDbContext(DbConnection existingConnection, bool contextOwnsConnection): base(existingConnection, contextOwnsConnection)
         {
             Configuration.ProxyCreationEnabled = true;
             Configuration.LazyLoadingEnabled = true;

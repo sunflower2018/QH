@@ -6,14 +6,14 @@ namespace QH.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QH.QHDBModel>
+    internal sealed class Configuration : DbMigrationsConfiguration<QH.qhDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(QH.QHDBModel context)
+        protected override void Seed(QH.qhDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
