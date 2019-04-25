@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-        Height="299.138"
+        Height="325.15"
         Width="443.966"
         Title="QH"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        DataContext="{Binding Main, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -18,8 +18,14 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <DockPanel  LastChildFill="False">
-            <StatusBar Height="26" VerticalAlignment="Bottom" Width="405" Margin="0,0,0,-0.4"/>
+        <DockPanel  LastChildFill="True">
+            <Menu x:Name="menu" Height="29"  VerticalAlignment="Top"  DockPanel.Dock="Top">
+                <MenuItem Header="导入" Click="MenuItem_Click"/>
+                <MenuItem Header="数据"/>
+                <MenuItem Header="MenuItem"/>
+            </Menu>
+            <DockPanel LastChildFill="False" />
         </DockPanel>
+      
     </Grid>
 </Window>

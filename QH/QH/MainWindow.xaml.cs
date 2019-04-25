@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using QH.ViewModel;
+using QH.Command;
 
 namespace QH
 {
@@ -15,6 +16,12 @@ namespace QH
         {
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ImportCommand command = new ImportCommand();
+            command.Execute(null);
         }
     }
 }
