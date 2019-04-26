@@ -18,10 +18,10 @@ namespace QH
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void menuItem导入_Click(object sender, RoutedEventArgs e)
         {
-            ImportCommand command = new ImportCommand();
-            command.Execute(null);
+            ImportDataWindow window = new ImportDataWindow();
+            window.ShowDialog();
         }
     }
 }

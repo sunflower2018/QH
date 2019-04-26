@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:local="clr-namespace:QH"
+        xmlns:cmd="clr-namespace:QH.Command"
         mc:Ignorable="d ignore"
         Height="325.15"
         Width="443.966"
@@ -20,7 +22,7 @@
     <Grid>
         <DockPanel  LastChildFill="True">
             <Menu x:Name="menu" Height="29"  VerticalAlignment="Top"  DockPanel.Dock="Top">
-                <MenuItem Header="导入" Click="MenuItem_Click"/>
+                <MenuItem x:Name="menuItem导入" Header="导入" Click="menuItem导入_Click"/>
                 <MenuItem Header="数据"/>
                 <MenuItem Header="MenuItem"/>
             </Menu>
