@@ -24,7 +24,7 @@
             <Menu x:Name="menu" Height="29"  VerticalAlignment="Top"  DockPanel.Dock="Top">
                 <MenuItem x:Name="menuItem导入" Header="导入" Click="menuItem导入_Click"/>
                 <MenuItem Header="数据"/>
-                <MenuItem Header="MenuItem"/>
+                <MenuItem x:Name="menuItem初始化数据库" Header="初始化数据库" Click="menuItem初始化数据库_Click"/>
             </Menu>
             <DockPanel LastChildFill="False" />
         </DockPanel>

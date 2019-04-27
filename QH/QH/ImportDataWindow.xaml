@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QH"
         mc:Ignorable="d"
-        Title="导入数据" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+        Title="导入数据" Height="206.341" Width="296.341" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnImportData" Content="导入数据" HorizontalAlignment="Left" Margin="52,70,0,0" VerticalAlignment="Top" Width="75" Click="btnImportData_Click"/>
+        <Button x:Name="btnImportData" Content="导入数据" HorizontalAlignment="Left" Margin="22,38,0,0" VerticalAlignment="Top" Width="75" Click="btnImportData_Click"/>
 
     </Grid>
 </Window>

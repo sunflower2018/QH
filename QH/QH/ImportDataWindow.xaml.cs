@@ -70,10 +70,7 @@ namespace QH
 
             //}
 
-            //创建上下文
-            qhDbContext db = new qhDbContext();
-            //创建数据库
-            db.Database.CreateIfNotExists();
+          
 
         }
     }
