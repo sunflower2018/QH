@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web;
+using win.Logger;
 
 namespace QH.ViewModel
 {    
@@ -36,9 +38,11 @@ namespace QH.ViewModel
             DateTime dtImport = dtMax.AddDays(1);
             while (true)
             {
+                if (dtImport.Date > DateTime.Now.Date)
+                    break;
+
                 this.Import成交日报(dtImport);
                 dtImport = dtImport.AddDays(1);
-
             }
         }
 
@@ -50,30 +54,40 @@ namespace QH.ViewModel
 
             if (dtReturn == DateTime.MinValue)
             {
-                dtReturn = new DateTime(2001, 1, 7);
+                dtReturn = new DateTime(2002, 1, 6);
             }
             return dtReturn;
         }
 
         private void Import成交日报(DateTime date交易日期)
         {
-            string url = string.Format("http://www.shfe.com.cn/data/dailydata/kx/kx{0}.dat", date交易日期.ToString("yyyyMMdd"));
-            string r1 = win.Util.Util_Http.HttpGet(url, string.Empty); //上海期货交易所，每日交易数据
-            成交日报_上海 r = JsonConvert.DeserializeObject<成交日报_上海>(r1);
-            List<BaseModel> llist = r.PaserTo();
-            
-            foreach (var item in llist)
+            try
             {
-                成交日报 rp = item as 成交日报;
-                if (rp.日期 != date交易日期)
-                    continue;
-                if (!this.IsExsitInDb(rp))
-                    continue;
+                string url = string.Format("http://www.shfe.com.cn/data/dailydata/kx/kx{0}.dat", date交易日期.ToString("yyyyMMdd"));
+                string r1 = win.Util.Util_Http.HttpGet(url, string.Empty); //上海期货交易所，每日交易数据
+                成交日报_上海 r = JsonConvert.DeserializeObject<成交日报_上海>(r1);
+                List<BaseModel> llist = r.PaserTo();
 
-                context.成交日报s.Add(rp);
+                foreach (var item in llist)
+                {
+                    成交日报 rp = item as 成交日报;
+                    if (rp.日期 != date交易日期)
+                        continue;
+                    if (!this.IsExsitInDb(rp))
+                        continue;
+
+                    context.成交日报s.Add(rp);
+                }
+                context.SaveChanges();
+            }       
+            catch (Exception ex)
+            {
+                if (!ex.Message.Contains("(404)"))
+                {
+                    Logger.Error(ex.Message);
+                }
+                    
             }
-            context.SaveChanges();
-
 
             ////查询，删除
             //List<成交日报> list = context.成交日报s.ToList<成交日报>();

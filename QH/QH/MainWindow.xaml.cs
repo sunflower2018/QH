@@ -35,8 +35,7 @@ namespace QH
                 qhDbContext db = new qhDbContext();
                 //创建数据库
                 db.Database.CreateIfNotExists();
-                this.ShowMessage("初始化数据成功");
-                Logger.Info("ok");
+                this.ShowMessage("初始化数据成功");            
             }
             catch (Exception ex)
             {

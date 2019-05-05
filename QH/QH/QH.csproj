@@ -114,6 +114,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\Command.cs" />
+    <Compile Include="DataMiningWindow.xaml.cs">
+      <DependentUpon>DataMiningWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="ImportDataWindow.xaml.cs">
       <DependentUpon>ImportDataWindow.xaml</DependentUpon>
@@ -132,9 +135,14 @@
     <Compile Include="Model\成交日报_上海.cs" />
     <Compile Include="QHDBModel.cs" />
     <Compile Include="Util\DateFormater.cs" />
+    <Compile Include="ViewModel\DataMiningViewModel.cs" />
     <Compile Include="ViewModel\ImportDataViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="DataMiningWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImportDataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
