@@ -128,6 +128,8 @@
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\基差日报_生意社.cs" />
+    <Compile Include="Model\现货日报.cs" />
     <Compile Include="Model\库存周报_上海.cs" />
     <Compile Include="Model\仓单日报_上海.cs" />
     <Compile Include="Model\仓单日报.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="ViewModel\ImportDataViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="仓单日报.cs" />
     <Page Include="DataMiningWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -37,7 +37,7 @@ namespace QH
         private void btnImportData_Click(object sender, RoutedEventArgs e)
         {
 
-            ////string r1= win.Util.Util_Http.HttpGet("http://www.100ppi.com/sf2/day-2018-04-17.html", string.Empty);
+            string r1 = win.Util.Util_Http.HttpGet("http://www.100ppi.com/sf2/day-2019-04-30.html", string.Empty);
 
             ////string r1 = win.Util.Util_Http.HttpGet("http://www.shfe.com.cn/data/dailydata/20190411dailystock.dat", string.Empty); //上海期货交易所 仓单日报
             ////仓单日报_上海 r = JsonConvert.DeserializeObject<仓单日报_上海>(r1);

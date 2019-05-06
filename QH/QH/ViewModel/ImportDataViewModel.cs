@@ -7,6 +7,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using win.Logger;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Data;
 
 namespace QH.ViewModel
 {    
@@ -29,8 +32,11 @@ namespace QH.ViewModel
 
         public void ImportData()
         {
-            this.Import成交日报();
+            //this.Import成交日报();
+            this.Import现货日报();
         }
+
+        #region 导入成交日报
 
         private void Import成交日报()
         {
@@ -108,5 +114,71 @@ namespace QH.ViewModel
 
             return true;
         }
+
+        #endregion
+
+        #region 导入现货日报
+        private void Import现货日报()
+        {
+            DateTime dtMax = this.GetMaxDate();
+            DateTime dtImport = dtMax.AddDays(1);
+            while (true)
+            {
+                if (dtImport.Date > DateTime.Now.Date)
+                    break;
+
+                this.Import现货日报(dtImport);
+                dtImport = dtImport.AddDays(1);
+            }
+        }
+
+        private void Import现货日报(DateTime date交易日期)
+        {
+            try
+            {
+                string url = string.Format("http://www.100ppi.com/sf2/day-{0}.html", date交易日期.ToString("yyyy-MM-dd"));
+                string r1 = win.Util.Util_Http.HttpGet(url, string.Empty); //上海期货交易所，每日交易数据
+
+                XmlDocument xml = new XmlDocument();
+                xml.LoadXml(r1);
+                DataSet ds = new DataSet();
+                //ds.ReadXml()
+
+                //成交日报_上海 r = JsonConvert.DeserializeObject<成交日报_上海>(r1);
+                //List<BaseModel> llist = r.PaserTo();
+
+                //foreach (var item in llist)
+                //{
+                //    成交日报 rp = item as 成交日报;
+                //    if (rp.日期 != date交易日期)
+                //        continue;
+                //    if (!this.IsExsitInDb(rp))
+                //        continue;
+
+                //    context.成交日报s.Add(rp);
+                //}
+                //context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                if (!ex.Message.Contains("(404)"))
+                {
+                    Logger.Error(ex.Message);
+                }
+
+            }
+
+            ////查询，删除
+            //List<成交日报> list = context.成交日报s.ToList<成交日报>();
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    context.Entry(list[i]).State = EntityState.Deleted;
+            //    MessageBox.Show(list[i].标识.ToString());
+            //    context.SaveChanges();
+            //}
+
+        }
+
+        #endregion
     }
 }
