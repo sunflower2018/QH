@@ -7,9 +7,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using win.Logger;
-using System.Xml;
-using System.Xml.Serialization;
 using System.Data;
+using System.Windows.Forms;
+using System.Net;
 
 namespace QH.ViewModel
 {    
@@ -136,12 +136,13 @@ namespace QH.ViewModel
         {
             try
             {
+                date交易日期 = new DateTime(2019, 4, 30); 
                 string url = string.Format("http://www.100ppi.com/sf2/day-{0}.html", date交易日期.ToString("yyyy-MM-dd"));
                 string r1 = win.Util.Util_Http.HttpGet(url, string.Empty); //上海期货交易所，每日交易数据
 
-                XmlDocument xml = new XmlDocument();
-                xml.LoadXml(r1);
-                DataSet ds = new DataSet();
+                WebClient wc = new WebClient();
+                HtmlDocument doc = new HtmlDocument();
+
                 //ds.ReadXml()
 
                 //成交日报_上海 r = JsonConvert.DeserializeObject<成交日报_上海>(r1);
