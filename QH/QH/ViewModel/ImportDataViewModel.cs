@@ -10,6 +10,9 @@ using win.Logger;
 using System.Data;
 using System.Windows.Forms;
 using System.Net;
+using Winista.Text.HtmlParser;
+using Winista.Text.HtmlParser.Lex;
+using Winista.Text.HtmlParser.Util;
 
 namespace QH.ViewModel
 {    
@@ -139,9 +142,11 @@ namespace QH.ViewModel
                 date交易日期 = new DateTime(2019, 4, 30); 
                 string url = string.Format("http://www.100ppi.com/sf2/day-{0}.html", date交易日期.ToString("yyyy-MM-dd"));
                 string r1 = win.Util.Util_Http.HttpGet(url, string.Empty); //上海期货交易所，每日交易数据
-
-                WebClient wc = new WebClient();
-                HtmlDocument doc = new HtmlDocument();
+                Lexer lexer = new Lexer(r1);
+                Parser parser = new Parser(lexer);
+                NodeList htmlNodes = parser.Parse(null);
+                //WebClient wc = new WebClient();
+                //HtmlDocument doc = new HtmlDocument();
 
                 //ds.ReadXml()
 
