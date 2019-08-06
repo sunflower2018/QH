@@ -11,6 +11,7 @@ namespace QH.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(QH.qhDbContext context)

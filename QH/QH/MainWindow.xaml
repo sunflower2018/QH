@@ -25,6 +25,7 @@
                 <MenuItem x:Name="menuItem导入" Header="导入" Click="menuItem导入_Click"/>
                 <MenuItem Header="数据"/>
                 <MenuItem x:Name="menuItem初始化数据库" Header="初始化数据库" Click="menuItem初始化数据库_Click"/>
+                <MenuItem x:Name="menuItem迁移数据库" Header="迁移数据库" Click="menuItem迁移数据库_Click"/>
             </Menu>
             <DockPanel LastChildFill="False" />
         </DockPanel>

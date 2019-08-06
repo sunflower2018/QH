@@ -4,6 +4,9 @@ using QH.Command;
 using win.form.CtrlExt;
 using System;
 using win.Logger;
+using System.Data.Entity;
+using QH.Migrations;
+using System.Data.Entity.Migrations;
 
 namespace QH
 {
@@ -40,6 +43,20 @@ namespace QH
             catch (Exception ex)
             {
                 Logger.Info(string.Format("{0}:{1}",DateTime.Now, ex.Message));
+            }
+        }
+        private void menuItem迁移数据库_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //自动迁移
+                Database.SetInitializer<qhDbContext>(new MigrateDatabaseToLatestVersion<qhDbContext, Configuration>());
+                var dbMigrator = new DbMigrator(new Configuration());
+                dbMigrator.Update();
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
